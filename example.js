@@ -15,7 +15,7 @@ document.onclick = function(e) {
     var text_to_beautify = getSource();
     setResult((new BSAutifier({
       'tags' : {
-        'opening': /<[^\!\/][^<]+?[^\/]>/m,
+        'opening': /<[^\!\/\%][^<]+?[^\/\%]>/m,
         'closing': /<\/[^>]+>/m,
         'self_closing': /<[^!][^>]+?\/>/m
       },

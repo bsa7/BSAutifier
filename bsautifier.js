@@ -2,7 +2,7 @@ function BSAutifier (options) {
   options = options || {}
   this.name = 'javascript html beautifier';
   this.tags = options.tags || {
-    'opening': /<[^\!\/][^<]+?[^\/]>/m,
+    'opening': /<[^\!\/\%][^<]+?[^\/\%]>/m,
     'closing': /<\/[^>]+>/m,
     'self_closing': /<[^!][^>]+?\/>/m
   };
