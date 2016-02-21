@@ -66,6 +66,11 @@ function BSAutifier (options) {
 }
 
 BSAutifier.prototype.beautify = function(text) {
+  text = text.replace(/[\r\n]/gm, '')
+             .replace(/>[\s]+</g, '><')
+             .replace(/\s+$/g, '')
+             .replace(/(>)\s+/g,'$1')
+             .replace(/\s+(<)/g, '$1')
   var indentTag = this.tabChar.repeat(this.tabSize);
   var currentIndent = '';
   var beautified_text = '';
@@ -106,5 +111,5 @@ BSAutifier.prototype.beautify = function(text) {
         text = '';
     }
   }
-  return beautified_text;
+  return beautified_text.replace(/[\r\n]/g, '\n');
 };
