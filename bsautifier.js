@@ -31,11 +31,6 @@ BSAutifier.prototype.beautify = function(text) {
   var next_position_hash;
   while (text.length > 0) {
     next_position_hash = wich_tag_is_next(text, this.tags);
-/*    console.log({
-      'next_position_hash': next_position_hash,
-      'text': text
-    });
-*/
     switch (next_position_hash.tag_type) {
       case null:
         text = '';
@@ -89,14 +84,6 @@ wich_tag_is_next = function(text, tags) {
     return(item < 0);
   });
   closest_position = positions.min();
-/*  console.log({
-    'closest_opening_tag': closest_opening_tag,
-    'closest_closing_tag': closest_closing_tag,
-    'closest_self_closing_tag': closest_self_closing_tag,
-    'closest_position': closest_position,
-    'positions': positions
-  });
-*/
   var closest_tag_hash = {}
   switch(closest_position) {
     case o_position:
