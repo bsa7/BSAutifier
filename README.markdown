@@ -49,10 +49,11 @@ we would to come it to more pretty format. BSAutifier do it and you went:
 
 ### Including js:
 
-You must include module to your page first:
+First include module to your page:
 ```html
 <script src="BSAutifier.js"></script>
 ```
+- it's all!
 
 ### Initializing:
 
