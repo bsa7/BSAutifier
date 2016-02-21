@@ -14,6 +14,11 @@ document.onclick = function(e) {
     e.preventDefault();
     var text_to_beautify = getSource();
     setResult((new BSAutifier({
+      'tags' : {
+        'opening': /<[^\!\/][^<]+?[^\/]>|\{/,
+        'closing': /<\/[^>]+>|\}/,
+        'self_closing': /<[^!][^>]+?\/>/
+      },
       'tabSize': 4,
       'line_end_char': '\n'
     })).beautify(text_to_beautify));
