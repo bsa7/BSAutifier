@@ -3,7 +3,7 @@ javascript html beautify (indent formatting) module.
 
 when our html look like that:
 ```
-<h1>Усл11уги</h1>
+<h1>Services</h1>
 <div class="children">
 <div class="row">
 <div class="child col-sm-6 text-center">
@@ -21,7 +21,7 @@ we would to come it to more pretty format. BSAutifier do it and you went:
 
 ```
 <h1>
-    Усл11уги
+    Services
 </h1>
 <div class="children">
     <div class="row">
