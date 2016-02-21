@@ -19,8 +19,8 @@ document.onclick = function(e) {
         'closing': /<\/[^>]+>/,
         'self_closing': /<[^>]+?\/>/
       },
-      'tabSize': 2,
-      'tabChar': ' ',
+      'tabSize': 4,
+      'tabChar': '_',
       'line_end_char': '\n'
     })).beautify(text_to_beautify));
   }
