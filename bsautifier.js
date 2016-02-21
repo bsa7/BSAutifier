@@ -2,9 +2,9 @@ function BSAutifier (options) {
   options = options || {}
   this.name = 'javascript html beautifier';
   this.tags = options.tags || {
-    'opening': /<[^\!\/][^<]+?[^\/]>/,
-    'closing': /<\/[^>]+>/,
-    'self_closing': /<[^!][^>]+?\/>/
+    'opening': /<[^\!\/][^<]+?[^\/]>/m,
+    'closing': /<\/[^>]+>/m,
+    'self_closing': /<[^!][^>]+?\/>/m
   };
   this.tabSize = options.tabSize || 2,
   this.tabChar = options.tabChar || ' ',
@@ -12,8 +12,14 @@ function BSAutifier (options) {
 
   // private functions
 
-  self.first = function(v) {
+  first = function(v) {
     return(v ? v[0] : null);
+  }
+
+  String.prototype.decode_html = function() {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = this;
+    return txt.value;
   }
 
   Array.prototype.min = function () {
@@ -31,17 +37,15 @@ function BSAutifier (options) {
 
   this.wich_tag_is_next = function(text, tags) {
     var closest_opening_tag = first(text.match(tags.opening));
-    var o_position = text.search(closest_opening_tag);       //opening
+    var o_position = text.search(tags.opening);       //opening
     var closest_closing_tag = first(text.match(tags.closing));
-    var c_position = text.search(closest_closing_tag);       //closing
+    var c_position = text.search(tags.closing);       //closing
     var closest_self_closing_tag = first(text.match(tags.self_closing));
-    var sc_position = text.search(closest_self_closing_tag); //self closing
+    var sc_position = text.search(tags.self_closing); //self closing
     var positions = [o_position, c_position, sc_position];
-    console.log(positions.join(','));
     positions.removeIf(function(item) {
       return(item < 0);
     });
-    console.log(positions.join(','));
     closest_position = positions.min();
     var closest_tag_hash = {}
     switch(closest_position) {
@@ -68,7 +72,8 @@ function BSAutifier (options) {
 }
 
 BSAutifier.prototype.beautify = function(text) {
-  text = text.replace(/[\r\n]/gm, '')
+  text = text.decode_html()
+             .replace(/[\r\n]/gm, '')
              .replace(/>[\s]+</g, '><')
              .replace(/\s+$/g, '')
              .replace(/(>)\s+/g,'$1')
@@ -79,8 +84,6 @@ BSAutifier.prototype.beautify = function(text) {
   var next_position_hash;
   while (text.length > 0) {
     next_position_hash = this.wich_tag_is_next(text, this.tags);
-    console.log(next_position_hash);
-    console.log(text)
     switch (next_position_hash.tag_type) {
       case null:
         text = '';
