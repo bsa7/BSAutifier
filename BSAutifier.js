@@ -1,6 +1,14 @@
 function BSAutifier (options) {
+  options = options || {}
   this.name = 'javascript html beautifier';
-  this.tags = options.tags;
+  this.tags = options.tags || {
+    'opening': /<[^<\/]+>/,
+    'closing': /<\/[^>]+>/,
+    'self_closing': /<[^>]+?\/>/
+  };
+  this.tabSize = options.tabSize || 2,
+  this.tabChar = options.tabChar || ' ',
+  this.line_end_char = options.line_end_char || '\n'
 }
 
 Array.prototype.min = function () {
@@ -17,9 +25,7 @@ Array.prototype.removeIf = function(callback) {
 };
 
 BSAutifier.prototype.beautify = function(text) {
-  var tabSize = 2;
-  var indentTag = ' '.repeat(tabSize);
-  var line_end_char = '\n';
+  var indentTag = this.tabChar.repeat(this.tabSize);
   var currentIndent = '';
   var beautified_text = '';
   var next_position_hash;
@@ -37,27 +43,27 @@ BSAutifier.prototype.beautify = function(text) {
       case 'o':
         leading_text = text.substring(0, next_position_hash.position);
         if (leading_text != '') {
-          beautified_text += currentIndent + leading_text + line_end_char;
+          beautified_text += currentIndent + leading_text + this.line_end_char;
         }
-        beautified_text += currentIndent + next_position_hash.tag_content + line_end_char;
+        beautified_text += currentIndent + next_position_hash.tag_content + this.line_end_char;
         text = text.substring(next_position_hash.position + next_position_hash.tag_content.length);
         currentIndent += indentTag;
         break;
       case 'c':
         leading_text = text.substring(0, next_position_hash.position);
         if (leading_text != '') {
-          beautified_text += currentIndent + leading_text + line_end_char;
+          beautified_text += currentIndent + leading_text + this.line_end_char;
         }
-        currentIndent = currentIndent.substring(2);
-        beautified_text += currentIndent + next_position_hash.tag_content + line_end_char;
+        currentIndent = currentIndent.substring(this.tabSize);
+        beautified_text += currentIndent + next_position_hash.tag_content + this.line_end_char;
         text = text.substring(next_position_hash.position + next_position_hash.tag_content.length);
         break;
       case 'sc':
         leading_text = text.substring(0, next_position_hash.position);
         if (leading_text != '') {
-          beautified_text += currentIndent + leading_text + line_end_char;
+          beautified_text += currentIndent + leading_text + this.line_end_char;
         }
-        beautified_text += currentIndent + next_position_hash.tag_content + line_end_char;
+        beautified_text += currentIndent + next_position_hash.tag_content + this.line_end_char;
         text = text.substring(next_position_hash.position + next_position_hash.tag_content.length);
         break;
       default:

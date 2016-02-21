@@ -18,7 +18,10 @@ document.onclick = function(e) {
         'opening': /<[^<\/]+>/,
         'closing': /<\/[^>]+>/,
         'self_closing': /<[^>]+?\/>/
-      }
+      },
+      'tabSize': 2,
+      'tabChar': ' ',
+      'line_end_char': '\n'
     })).beautify(text_to_beautify));
   }
 };
