@@ -20,7 +20,6 @@ document.onclick = function(e) {
         'self_closing': /<[^>]+?\/>/
       },
       'tabSize': 4,
-      'tabChar': '_',
       'line_end_char': '\n'
     })).beautify(text_to_beautify));
   }
