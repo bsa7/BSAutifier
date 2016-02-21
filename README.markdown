@@ -50,7 +50,7 @@ we would to come it to more pretty format. BSAutifier do it and you went:
 ### Including js:
 
 You must include module to your page first:
-```
+```html
 <script src="BSAutifier.js"></script>
 ```
 
@@ -59,7 +59,7 @@ You must include module to your page first:
 You can initialize BSAutifier object in javascript:
 
 1. with params:
-```
+```javascript
 html_beautifier = new BSAutifier({
   'tags' : {
     'opening': /<[^<\/]+>/,
@@ -70,8 +70,14 @@ html_beautifier = new BSAutifier({
   'line_end_char': '\n'
 })
 ```
-
 2. within params:
-```
+```javascript
 html_beautifier = new BSAutifier()
+```
+
+### Using:
+
+use initialized BSAutifier object instance to beautify html:
+```javascript
+beauty_html_text = html_beautifier.beautify(text_to_beautify);
 ```
