@@ -46,3 +46,32 @@ we would to come it to more pretty format. BSAutifier do it and you went:
 ```
 
 ## Installing and using.
+
+### Including js:
+
+You must include module to your page first:
+```
+<script src="BSAutifier.js"></script>
+```
+
+### Initializing:
+
+You can initialize BSAutifier object in javascript:
+
+1. with params:
+```
+html_beautifier = new BSAutifier({
+  'tags' : {
+    'opening': /<[^<\/]+>/,
+    'closing': /<\/[^>]+>/,
+    'self_closing': /<[^>]+?\/>/
+  },
+  'tabSize': 4,
+  'line_end_char': '\n'
+})
+```
+
+2. within params:
+```
+html_beautifier = new BSAutifier()
+```
