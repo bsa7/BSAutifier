@@ -21,15 +21,19 @@ extra short tag name example
     </div>
     <img src="fake"/> <!-- self closed tag example -->
 
-    <div data-source="/partials/link_us"></div>
+    <div data-source="/partials/link_us">
+    
+    </div>
        <input id="feedback_name" class="form-control" title="this field must contain your name" name="feedback[name]" pattern="[a-zA-Z ]+" required="required" type="text" placeholder="Name" /><input id="feedback_e_mail" class="form-control" title="This field must contain valid email" name="feedback[e_mail]" pattern=".+@.+" type="e_mail" placeholder="E-mail" /><input id="feedback_phone" class="form-control" title="This field must contain your phone number" name="feedback[phone]" pattern="+?[()- 0-9]{6,13}" type="phone" placeholder="Phone" />
   <div data-source="/partials/subscribe_service">
 </div>
 <div id="text" class="col-sm-6 bf_user_txt">
-      <textarea id="feedback_text" class="form-control" title="Write message for manager here" name="feedback[text]" placeholder="Message text"></textarea>
+      <textarea id="feedback_text" class="form-control" title="Write message for manager here" name="feedback[text]" placeholder="Message text">
+      </textarea>
   </div>
 </div>
-<div data-source="/partials/updates"></div>
+<div data-source="/partials/updates">
+</div>
 </div>
 </div>
 ```
@@ -53,20 +57,16 @@ we would to come it to more pretty format. BSAutifier do it and you went:
       </div>
       <img src="fake"/>
       <!-- self closed tag example -->
-      <div data-source="/partials/link_us">
-      </div>
+      <div data-source="/partials/link_us"></div>
       <input id="feedback_name" class="form-control" title="this field must contain your name" name="feedback[name]" pattern="[a-zA-Z ]+" required="required" type="text" placeholder="Name" />
       <input id="feedback_e_mail" class="form-control" title="This field must contain valid email" name="feedback[e_mail]" pattern=".+@.+" type="e_mail" placeholder="E-mail" />
       <input id="feedback_phone" class="form-control" title="This field must contain your phone number" name="feedback[phone]" pattern="+?[()- 0-9]{6,13}" type="phone" placeholder="Phone" />
-      <div data-source="/partials/subscribe_service">
-      </div>
+      <div data-source="/partials/subscribe_service"></div>
       <div id="text" class="col-sm-6 bf_user_txt">
-        <textarea id="feedback_text" class="form-control" title="Write message for manager here" name="feedback[text]" placeholder="Message text">
-        </textarea>
+        <textarea id="feedback_text" class="form-control" title="Write message for manager here" name="feedback[text]" placeholder="Message text"></textarea>
       </div>
     </div>
-    <div data-source="/partials/updates">
-    </div>
+    <div data-source="/partials/updates"></div>
   </div>
 </div>
 ```
