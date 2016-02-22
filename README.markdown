@@ -2,7 +2,7 @@
 javascript html beautify (indent formatting) module.
 
 when our html look like that:
-```
+```html
 <div class="container my_container">
   <div class="row"> <div class="content"> Content beside tags - it text<div class="content">
       <h1>Simple goods for you
