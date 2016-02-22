@@ -89,21 +89,21 @@ First include module to your page:
 You can initialize BSAutifier object in javascript:
 
 1. with params:
-```javascript
-html_beautifier = new BSAutifier({
-  'tags' : {
-    'opening': /<[a-z][^<]*?[^\/\%]>|<[a-z]>/im,
-    'closing': /<\/[^>]+>/m,
-    'self_closing': /<[^!][^>]+?\/>/m
-  },
-  'tabSize': 4,
-  'line_end_char': '\n'
-})
-```
+    ```javascript
+    html_beautifier = new BSAutifier({
+      'tags' : {
+        'opening': /<[a-z][^<]*?[^\/\%]>|<[a-z]>/im,
+        'closing': /<\/[^>]+>/m,
+        'self_closing': /<[^!][^>]+?\/>/m
+      },
+      'tabSize': 4,
+      'line_end_char': '\n'
+    })
+    ```
 2. within params:
-```javascript
-html_beautifier = new BSAutifier()
-```
+    ```javascript
+    html_beautifier = new BSAutifier()
+    ```
 
 ### Using:
 
