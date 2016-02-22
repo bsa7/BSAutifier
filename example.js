@@ -19,7 +19,7 @@ document.onclick = function(e) {
         'closing': /<\/[^>]+>/m,
         'self_closing': /<[^!][^>]+?\/>/m
       },
-      'tabSize': 4,
+      'tabSize': 2,
       'line_end_char': '\n'
     })).beautify(text_to_beautify));
   }

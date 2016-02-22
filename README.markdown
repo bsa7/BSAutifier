@@ -3,16 +3,35 @@ javascript html beautify (indent formatting) module.
 
 when our html look like that:
 ```
-<h1>Services</h1>
-<div class="children">
-<div class="row">
-<div class="child col-sm-6 text-center">
-<div class="thumbnail"><img src="../../uploads/a0440b1456e38342s1.jpg" alt="A0440b1456e38342s1" /></div>
-<div class="title">Sell of goodies.</div>
+<div class="container my_container">
+  <div class="row"> <div class="content"> Content beside tags - it text<div class="content">
+      <h1>Simple goods for you
+  <i>
+
+
+extra short tag name example
+
+
+
+  </i>
+    </h1>
+  </div>
+      <div data-source="/partials/our_contacts">
+      Simple <%= 'we need't erb tags supprt! %> raw text content
+    </div>
+    <img src="fake"/> <!-- self closed tag example -->
+
+    <div data-source="/partials/link_us">
+  </div>
+       <input id="feedback_name" class="form-control" title="this field must contain your name" name="feedback[name]" pattern="[a-zA-Z ]+" required="required" type="text" placeholder="Name" /><input id="feedback_e_mail" class="form-control" title="This field must contain valid email" name="feedback[e_mail]" pattern=".+@.+" type="e_mail" placeholder="E-mail" /><input id="feedback_phone" class="form-control" title="This field must contain your phone number" name="feedback[phone]" pattern="+?[()- 0-9]{6,13}" type="phone" placeholder="Phone" />
+  <div data-source="/partials/subscribe_service">
 </div>
-<div class="child col-sm-6 text-center">
-<div class="thumbnail"><img src="../../uploads/6fbb953bf4db65c5s2.jpg" alt="6fbb953bf4db65c5s2" /></div>
-<div class="title">Stock services.</div>
+<div id="text" class="col-sm-6 bf_user_txt">
+      <textarea id="feedback_text" class="form-control" title="Write message for manager here" name="feedback[text]" placeholder="Message text">
+    </textarea>
+  </div>
+</div>
+<div data-source="/partials/updates">
 </div>
 </div>
 </div>
@@ -20,28 +39,38 @@ when our html look like that:
 we would to come it to more pretty format. BSAutifier do it and you went:
 
 ```
-<h1>
-    Services
-</h1>
-<div class="children">
-    <div class="row">
-        <div class="child col-sm-6 text-center">
-            <div class="thumbnail">
-                <img src="../../uploads/a0440b1456e38342s1.jpg" alt="A0440b1456e38342s1" />
-            </div>
-            <div class="title">
-                Sell of goodies.
-            </div>
-        </div>
-        <div class="child col-sm-6 text-center">
-            <div class="thumbnail">
-                <img src="../../uploads/6fbb953bf4db65c5s2.jpg" alt="6fbb953bf4db65c5s2" />
-            </div>
-            <div class="title">
-                Sell of goodies.
-            </div>
-        </div>
+<div class="container my_container">
+  <div class="row">
+    <div class="content">
+      Content beside tags - it text
+      <div class="content">
+        <h1>
+          Simple goods for you
+          <i>
+            extra short tag name example
+          </i>
+        </h1>
+      </div>
+      <div data-source="/partials/our_contacts">
+        Simple<%= 'we need't erb tags supprt! %>raw text content
+      </div>
+      <img src="fake"/>
+      <!-- self closed tag example -->
+      <div data-source="/partials/link_us">
+      </div>
+      <input id="feedback_name" class="form-control" title="this field must contain your name" name="feedback[name]" pattern="[a-zA-Z ]+" required="required" type="text" placeholder="Name" />
+      <input id="feedback_e_mail" class="form-control" title="This field must contain valid email" name="feedback[e_mail]" pattern=".+@.+" type="e_mail" placeholder="E-mail" />
+      <input id="feedback_phone" class="form-control" title="This field must contain your phone number" name="feedback[phone]" pattern="+?[()- 0-9]{6,13}" type="phone" placeholder="Phone" />
+      <div data-source="/partials/subscribe_service">
+      </div>
+      <div id="text" class="col-sm-6 bf_user_txt">
+        <textarea id="feedback_text" class="form-control" title="Write message for manager here" name="feedback[text]" placeholder="Message text">
+        </textarea>
+      </div>
     </div>
+    <div data-source="/partials/updates">
+    </div>
+  </div>
 </div>
 ```
 
@@ -63,9 +92,9 @@ You can initialize BSAutifier object in javascript:
 ```javascript
 html_beautifier = new BSAutifier({
   'tags' : {
-    'opening': /<[^<\/]+>/,
-    'closing': /<\/[^>]+>/,
-    'self_closing': /<[^>]+?\/>/
+    'opening': /<[a-z][^<]*?[^\/\%]>|<[a-z]>/im,
+    'closing': /<\/[^>]+>/m,
+    'self_closing': /<[^!][^>]+?\/>/m
   },
   'tabSize': 4,
   'line_end_char': '\n'
