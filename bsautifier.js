@@ -2,7 +2,7 @@ function BSAutifier (options) {
   options = options || {}
   this.name = 'javascript html beautifier';
   this.tags = options.tags || {
-    'opening': /<[^\!\/\%][^<]+?[^\/\%]>/m,
+    'opening': /<[a-z][^<]*?[^\/\%]>|<[a-z]>/im,
     'closing': /<\/[^>]+>/m,
     'self_closing': /<[^!][^>]+?\/>/m
   };
@@ -84,6 +84,8 @@ BSAutifier.prototype.beautify = function(text) {
   var next_position_hash;
   while (text.length > 0) {
     next_position_hash = this.wich_tag_is_next(text, this.tags);
+//    console.log(next_position_hash);
+//    console.log(text);
     switch (next_position_hash.tag_type) {
       case null:
         text = '';
