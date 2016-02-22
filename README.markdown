@@ -38,7 +38,7 @@ extra short tag name example
 ```
 we would to come it to more pretty format. BSAutifier do it and you went:
 
-```
+```html
 <div class="container my_container">
   <div class="row">
     <div class="content">
