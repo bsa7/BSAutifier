@@ -120,5 +120,10 @@ BSAutifier.prototype.beautify = function(text) {
         text = '';
     }
   }
+  // finish: remove spaces between just opened and closed tags withn content
+  opening_r = this.tags.opening.toString().replace(/^\//, '(').replace(/\/[a-z]+$/, ')');
+  r = opening_r + '([\\s]+)<\\/';
+//  console.log(r);
+  beautified_text = beautified_text.replace((new RegExp(r, 'gim')), '$1</');
   return beautified_text.replace(/[\r\n]/g, '\n');
 };
