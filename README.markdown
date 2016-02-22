@@ -89,6 +89,7 @@ First include module to your page:
 You can initialize BSAutifier object in javascript:
 
 1. with params:
+
     ```javascript
     html_beautifier = new BSAutifier({
       'tags' : {
@@ -101,6 +102,7 @@ You can initialize BSAutifier object in javascript:
     })
     ```
 2. within params:
+
     ```javascript
     html_beautifier = new BSAutifier()
     ```
