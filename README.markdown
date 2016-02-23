@@ -71,9 +71,9 @@ we would to come it to more pretty format. BSAutifier do it and you went:
 </div>
 ```
 
-## Installing and using.
+## Installing and using:
 
-1. ### Including js:
+1. ### Include js:
 
     First include module to your page:
     ```html
@@ -81,7 +81,7 @@ we would to come it to more pretty format. BSAutifier do it and you went:
     ```
     - it's all!
 
-    ### Initializing:
+2. ### Initialize:
 
     You can initialize BSAutifier object in javascript:
 
@@ -104,7 +104,7 @@ we would to come it to more pretty format. BSAutifier do it and you went:
         html_beautifier = new BSAutifier()
         ```
 
-2. ### Using:
+3. ### Use:
 
     use initialized BSAutifier object instance to beautify html:
     ```javascript
