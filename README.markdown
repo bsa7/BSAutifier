@@ -73,40 +73,40 @@ we would to come it to more pretty format. BSAutifier do it and you went:
 
 ## Installing and using.
 
-### Including js:
+1. ### Including js:
 
-First include module to your page:
-```html
-<script src="BSAutifier.js"></script>
-```
-- it's all!
-
-### Initializing:
-
-You can initialize BSAutifier object in javascript:
-
-1. with params:
-
-    ```javascript
-    html_beautifier = new BSAutifier({
-      'tags' : {
-        'opening': /<[a-z][^<]*?[^\/\%]>|<[a-z]>/im,
-        'closing': /<\/[^>]+>/m,
-        'self_closing': /<[^!][^>]+?\/>/m
-      },
-      'tabSize': 4,
-      'line_end_char': '\n'
-    })
+    First include module to your page:
+    ```html
+    <script src="BSAutifier.js"></script>
     ```
-2. within params:
+    - it's all!
 
+    ### Initializing:
+
+    You can initialize BSAutifier object in javascript:
+
+    1. with params:
+
+        ```javascript
+        html_beautifier = new BSAutifier({
+          'tags' : {
+            'opening': /<[a-z][^<]*?[^\/\%]>|<[a-z]>/im,
+            'closing': /<\/[^>]+>/m,
+            'self_closing': /<[^!][^>]+?\/>/m
+          },
+          'tabSize': 4,
+          'line_end_char': '\n'
+        })
+        ```
+    2. within params:
+
+        ```javascript
+        html_beautifier = new BSAutifier()
+        ```
+
+2. ### Using:
+
+    use initialized BSAutifier object instance to beautify html:
     ```javascript
-    html_beautifier = new BSAutifier()
+    beauty_html_text = html_beautifier.beautify(text_to_beautify);
     ```
-
-### Using:
-
-use initialized BSAutifier object instance to beautify html:
-```javascript
-beauty_html_text = html_beautifier.beautify(text_to_beautify);
-```
